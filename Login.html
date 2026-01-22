@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interviax | Login</title>
+    <link rel="stylesheet" href="css/loginstyles.css">
+
+    <script>
+        // Redirect if already logged in
+        if (localStorage.getItem("isLoggedIn") === "true") {
+            window.location.href = "index.html";
+        }
+    </script>
+</head>
+
+<body class="login-body">
+
+    <div class="login-card">
+
+        <!-- LOGO SECTION -->
+        <div class="login-logo">
+            <img src="images/interviax-logo.png" alt="Interviax Logo" class="logo-img">
+
+            <h2 class="brand-name">Interviax</h2>
+            <p class="tagline">Next-Gen Interview Readiness</p>
+        </div>
+
+
+        <!-- LOGIN FORM -->
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+
+        <div id="error" class="error"></div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

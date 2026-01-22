@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interviax</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/interviewprep.css">
+    <link rel="stylesheet" href="css/videostyles.css">
+</head>
+<body>
+
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand brand-flex">
+                <img src="images/interviax-logo.png" class="brand-logo" />
+                <span class="brand-text">Interviax</span>
+            </div>
+
+            <ul class="menu">
+                <li onclick="location.href='InterviewQuiz.html'">
+                    <span class="menu-icon">📋</span>
+                    <span class="menu-text">Interview Quiz</span>
+                </li>
+                <li onclick="location.href='WatchVideos.html'">
+                    <span class="menu-icon">📺</span>
+                    <span class="menu-text">Skill Videos</span>
+                </li>
+                <li class="active">
+                    <span class="menu-icon">🎯</span>
+                    <span class="menu-text">Interview Prep</span>
+                </li>
+            </ul>
+        </aside>
+
+
+        <!-- MAIN -->
+        <div class="main">
+
+            <!-- PREMIUM TOP BAR -->
+            <header class="topbar dark">
+                <div class="top-left">
+                    <span class="hamburger">☰</span>
+                    <span class="title">Interview Preparetion</span>
+                </div>
+
+                <div class="top-center">
+                    <input type="text"
+                           id="topicSearch"
+                           placeholder="Search Topic..."
+                           onkeyup="filterPrepTopics()" />
+                </div>
+
+                <div class="top-right">
+                    <span class="user-name">Admin</span>
+                    <a href="#" onclick="logout()" class="logout">Logout</a>
+                </div>
+            </header>
+
+            <!-- CONTENT -->
+            <section class="content">
+                <div class="grid">
+
+                    <div class="card scroll">
+                        <h3>Topics</h3>
+                        <ul id="preptopicList" class="list"></ul>
+                    </div>
+
+                    <div class="card scroll">
+                        <h3 id="questionHeader">Explanation</h3>
+                        <ul id="questionList" class="list"></ul>
+                    </div>
+
+                    <!-- Videos -->
+                    <div class="card scroll">
+                        <h3 id="videoHeader">Videos</h3>
+                        <ul id="PrepvideoList" class="video-list"></ul>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- PDF MODAL -->
+    <div id="pdfModal" class="pdf-modal">
+        <div class="pdf-content">
+            <div class="pdf-header">
+                <h3 id="pdfTitle"></h3>
+                <button onclick="closePdfModal()">✖</button>
+            </div>
+
+            <iframe id="pdfViewer"></iframe>
+
+            <div class="pdf-footer">
+                <button class="btn" onclick="downloadPdf()">⬇ Download PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="prepvideoModal" class="video-modal">
+        <div class="video-container">
+            <div class="video-header">
+                <h4 id="prepvideoTitle">Video</h4>
+                <div class="video-actions">
+                    <button id="prepopenInNewTab" class="open-tab-btn">
+                        View in new tab
+                    </button>
+                    <button class="close-btn" onclick="closeVideoModal()">✕</button>
+                </div>
+            </div>
+
+            <div class="video-body">
+                <iframe id="prepvideoFrame"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- AUTH GUARD -->
+    <script src="js/auth.js"></script>
+    <script>
+        protectPage();
+    </script>
+
+    <!-- LOAD SKILLS -->
+    <script src="js/InterviewPrep-app.js"></script>
+    <script src="js/data/InterviewPrep/InterviewPrepdata.js"></script>
+
+</body>
+</html>

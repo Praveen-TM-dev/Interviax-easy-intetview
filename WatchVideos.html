@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interviax – Skill Videos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/videostyles.css">    
+</head>
+<body>
+
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand brand-flex">
+                <img src="images/interviax-logo.png" class="brand-logo" />
+                <span class="brand-text">Interviax</span>
+            </div>
+
+            <ul class="menu">
+                <li onclick="location.href='InterviewQuiz.html'">
+                    <span class="menu-icon">📋</span>
+                    <span class="menu-text">Interview Quiz</span>
+                </li>
+                <li class="active">
+                    <span class="menu-icon">📺</span>
+                    <span class="menu-text">Skill Videos</span>
+                </li>
+                <li onclick="location.href='InterviewPrep.html'">
+                    <span class="menu-icon">🎯</span>
+                    <span class="menu-text">Interview Prep</span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- MAIN -->
+        <div class="main">
+
+            <header class="topbar dark">
+                <div class="top-left">
+                    <span class="hamburger">☰</span>
+                    <span class="title">Skill Videos</span>
+                </div>
+
+                <div class="top-center">
+                    <input type="text"
+                           id="skillSearch"
+                           placeholder="Search skills..."
+                           onkeyup="filterVideoSkills()" />
+                </div>
+
+                <div class="top-right">
+                    <span class="user-name">Admin</span>
+                    <a href="#" onclick="logout()" class="logout">Logout</a>
+                </div>
+            </header>
+
+            <section class="content">
+                <div class="grid" style="grid-template-columns: 1fr 2fr;">
+
+                    <!-- Skills -->
+                    <div class="card scroll">
+                        <h3>Skills</h3>
+                        <ul id="videoSkillList" class="list"></ul>
+                    </div>
+
+                    <!-- Videos -->
+                    <div class="card scroll">
+                        <h3 id="videoHeader">Videos</h3>
+                        <ul id="videoList" class="video-list"></ul>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-container">
+            <div class="video-header">
+                <h4 id="videoTitle">Video</h4>
+                <div class="video-actions">
+                    <button id="openInNewTab" class="open-tab-btn">
+                        View in new tab
+                    </button>
+                    <button class="close-btn" onclick="closeVideo()">✕</button>
+                </div>
+            </div>
+
+            <div class="video-body">
+                <iframe id="videoFrame"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUTH GUARD -->
+    <script src="js/auth.js"></script>
+    <script>protectPage();</script>   
+
+    <!-- VIDEO DATA + APP -->
+    <script src="js/data/Video/skills-videos.js"></script>
+    <script src="js/videos-app.js"></script>
+
+</body>
+</html>

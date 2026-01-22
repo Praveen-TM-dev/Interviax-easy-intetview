@@ -1,0 +1,272 @@
+/* =========================
+   GLOBAL
+   ========================= */
+* {
+    box-sizing: border-box;
+    font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+/* =========================
+   LAYOUT
+   ========================= */
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+/* =========================
+   SIDEBAR
+   ========================= */
+.sidebar {
+    width: 260px;
+    background: linear-gradient(180deg, #020617, #0f172a);
+    color: #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.25s ease;
+}
+
+    /* COLLAPSED */
+    .sidebar.collapsed {
+        width: 72px;
+    }
+
+/* BRAND */
+.brand {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.05);
+}
+
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.brand-text {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Hide brand text when collapsed */
+.sidebar.collapsed .brand-text {
+    display: none;
+}
+
+.sidebar.collapsed .brand {
+    justify-content: center;
+}
+
+/* MENU */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .menu li {
+        padding: 14px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        color: #cbd5f5;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        transition: background 0.2s ease;
+    }
+
+        .menu li:hover,
+        .menu li.active {
+            background: rgba(79, 70, 229, 0.25);
+            color: #ffffff;
+        }
+
+.menu-icon {
+    font-size: 18px;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* Hide menu text only */
+.sidebar.collapsed .menu-text {
+    display: none;
+}
+
+/* Center icons */
+.sidebar.collapsed .menu li {
+    justify-content: center;
+}
+
+/* =========================
+   MAIN
+   ========================= */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================
+   TOP BAR
+   ========================= */
+.topbar.dark {
+    height: 64px;
+    background: linear-gradient(90deg, #0b1220, #0f172a);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: #e5e7eb;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
+.top-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.hamburger {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.top-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+    .top-center input {
+        width: 420px;
+        max-width: 100%;
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.15);
+        background: rgba(255,255,255,0.08);
+        color: #ffffff;
+    }
+
+        .top-center input::placeholder {
+            color: #c7d2fe;
+        }
+
+.top-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logout {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* =========================
+   CONTENT
+   ========================= */
+.content {
+    padding: 24px;
+    overflow-y: auto;
+}
+
+/* =========================
+   GRID
+   ========================= */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 2fr;
+    gap: 24px;
+}
+
+/* =========================
+   CARDS
+   ========================= */
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+    .card h3 {
+        margin: 0 0 12px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #1e293b;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 8px;
+    }
+
+/* =========================
+   SCROLLABLE
+   ========================= */
+.scroll {
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+}
+
+/* =========================
+   LISTS
+   ========================= */
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .list li {
+        padding: 10px 14px;
+        margin-bottom: 6px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        color: #334155;
+    }
+
+        .list li:hover {
+            background: #eef2ff;
+        }
+
+        .list li.active {
+            background: #4f46e5;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+/* =========================
+   ANSWER
+   ========================= */
+#answerText {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #334155;
+    white-space: pre-line;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 1100px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -165,7 +165,7 @@ function renderQuestions(skillKey) {
 
         li.onclick = () => {
             highlight(questionList, li);
-            answerText.textContent = q.a;
+            answerText.innerHTML = q.a;
         };
 
         questionList.appendChild(li);

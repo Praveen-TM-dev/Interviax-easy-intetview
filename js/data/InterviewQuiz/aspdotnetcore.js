@@ -84,7 +84,7 @@ window.skillQuestions = {
                 a: `Dependency Injection (DI) is a design pattern in which an object does not create the objects it depends on, but instead receives them from an external source.
                     Built-in Dependency Injection (DI) in ASP.NET Core is a framework feature that automatically provides required objects (dependencies) to a class instead of the class creating them itself.
                     In Short: ASP.NET Core manages object creation and lifetime for you.
-                    In simple terms: Dependencies are “injected” into a class rather than being created inside it.
+                    In simple terms: Dependencies are "injected" into a class rather than being created inside it.
                     <b>Why Dependency Injection is Needed</b>
                     Without DI:
                     <ul style="margin-top: -15px;margin-bottom: -25px;">
@@ -119,7 +119,7 @@ window.skillQuestions = {
 
                     <i>Dependency Injection helps achieve loose coupling and improves testability and maintainability.</i>
 
-                    <b>What Makes ASP.NET Core DI “Built-in”?</b>
+                    <b>What Makes ASP.NET Core DI "Built-in"?</b>
                     <ul style="margin-top: -15px;margin-bottom: -25px;">
                         <li>No external libraries required</li>
                         <li style="margin-top: -15px;">Available by default in every ASP.NET Core project</li>
@@ -131,9 +131,9 @@ window.skillQuestions = {
                     Services are registered in Program.cs.
                     Types of lifetimes:
                      <ul style="margin-top: -15px;margin-bottom: -25px;">
-                        <li>Transient – New instance every time - Lightweight services(Use Case)</li>
-                        <li style="margin-top: -15px;">Scoped – One instance per HTTP request - Database context(Use Case)</li>
-                        <li style="margin-top: -15px;">Singleton – One instance for the entire application (Single instance for app lifetime) - Caching, logging(Use Case)</li>
+                        <li>Transient - New instance every time - Lightweight services(Use Case)</li>
+                        <li style="margin-top: -15px;">Scoped  - One instance per HTTP request - Database context(Use Case)</li>
+                        <li style="margin-top: -15px;">Singleton - One instance for the entire application (Single instance for app lifetime) - Caching, logging(Use Case)</li>
                     </ul>
                     <pre style="margin: -20px;color: green;"><code>
                     builder.Services.AddScoped<IUserService, UserService>();
@@ -235,8 +235,6 @@ window.skillQuestions = {
                     <i>"ASP.NET Core unifies multiple application models under one framework, making development consistent and flexible."</i>
                     `
             },
-
-
             { q: "Explain ASP.NET Core request pipeline", a: "It is a sequence of middleware components that handle HTTP requests and responses. Each middleware can process, modify, or short-circuit the pipeline." },
             { q: "Middleware vs Filters", a: "Middleware runs globally for all requests, while filters are part of MVC and run during action execution." },
             { q: "Dependency Injection lifetimes", a: "Transient: new instance every time, Scoped: per HTTP request, Singleton: application lifetime." },
